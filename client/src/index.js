@@ -38,14 +38,14 @@ class Weather extends React.Component
     var response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER}`); //storing the weather in response variable
     this.setState({weather:response.data}); //changing the state variable weather to store the fetched response data
        
-    await axios.post(`http://localhost:1000/weather`,response.data); //sending the fetched weather to the server for storing in database and waiting for confirmation
+    await axios.post(`https://weathry.herokuapp.com/weather`,response.data); //sending the fetched weather to the server for storing in database and waiting for confirmation
   }
 
   //displaying the history of searches
   showHistory = async () =>
   {
-    console.log(`http://localhost:1000/history`);
-    const response = await axios.get(`http://localhost:1000/history`); //storing the records fetched from database to response
+    console.log(`https://weathry.herokuapp.com/history`);
+    const response = await axios.get(`https://weathry.herokuapp.com/history`); //storing the records fetched from database to response
     this.setState({history:response.data}); //changing the state variable history to store the response data
     this.setState({showHis: 1}); //to make the history section visible
   }   
